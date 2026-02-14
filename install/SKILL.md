@@ -99,6 +99,34 @@ If any table shows `false`, run the migration SQL from the repo's `supabase-migr
 | `bun: command not found` | Install Bun: `curl -fsSL https://bun.sh/install \| bash` |
 | `overclaw: command not found` after link | Restart your shell or add `~/.bun/bin` to PATH |
 
-## Next step
+## Deploy background services
 
-After the CLI is installed and `overclaw init` succeeds, deploy the background services (notification worker and cron jobs) using the [deploy skill](https://raw.githubusercontent.com/Tmeister/overclaw-skills/refs/heads/main/deploy/SKILL.md).
+After `overclaw init` succeeds, deploy the notification worker and cron jobs. These commands must be run from the `overclaw-cli` source directory (where `package.json` lives). If running from a compiled binary elsewhere, pass `--dir /path/to/overclaw-cli`.
+
+### Deploy the notification worker
+
+```bash
+overclaw setup worker
+```
+
+Expected: `{ "ok": true, "data": { "state": "active" } }`
+
+### Deploy cron jobs
+
+```bash
+overclaw setup cron
+```
+
+Expected: `{ "ok": true, "data": { "installed": true } }`
+
+### Verify deployment
+
+```bash
+overclaw setup status
+```
+
+All components should show `active`/`enabled`/`true`. If the worker shows `inactive`, check logs:
+
+```bash
+journalctl --user -u overclaw-notification-worker -n 50
+```
