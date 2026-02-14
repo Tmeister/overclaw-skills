@@ -262,10 +262,12 @@ openclaw agent --agent <lead-openclaw-id> --message "New project: <Project Name>
 
 ### Step 6: Present summary
 
-Show the user the completed setup:
+When everything is done, present a clear completion summary to the user. Include the total number of agents created, the project details, and the full roster. Use the actual values from the onboarding — not placeholders.
+
+Example format:
 
 ```
-Team is ready!
+Onboarding complete! I created 3 agents and they're ready to work.
 
 Project: <Project Name>
 Project ID: <project-uuid>
@@ -276,9 +278,10 @@ Project ID: <project-uuid>
 | Frontend Dev | specialist | frontend-dev | <uuid> | online |
 | Backend Dev | specialist | backend-dev | <uuid> | online |
 
-The lead agent has been messaged with the project brief.
-Next: the lead will bootstrap, break down the project into tasks, and assign work to the specialists.
+The lead agent has been messaged with the project brief and will start planning.
 ```
+
+This is the final output — the user should walk away knowing how many agents exist, what project they're attached to, and that work is about to begin.
 
 ---
 

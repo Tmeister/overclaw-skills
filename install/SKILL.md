@@ -98,3 +98,7 @@ If any table shows `false`, run the migration SQL from the repo's `supabase-migr
 | `SUPABASE_ANON_KEY environment variable is not set` | Add `SUPABASE_ANON_KEY` to `.env.local` or export it |
 | `bun: command not found` | Install Bun: `curl -fsSL https://bun.sh/install \| bash` |
 | `overclaw: command not found` after link | Restart your shell or add `~/.bun/bin` to PATH |
+
+## Next step
+
+After the CLI is installed and `overclaw init` succeeds, deploy the background services (notification worker and cron jobs) using the **deploy** skill.
