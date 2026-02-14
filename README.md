@@ -6,6 +6,7 @@ Agent skills for the OverClaw CLI. Each skill follows the [SKILL.md format](http
 
 | Skill | Description |
 |-------|-------------|
+| [install](install/SKILL.md) | Install and configure the OverClaw CLI |
 | [managing-projects](managing-projects/SKILL.md) | Create, update, list, and archive projects |
 | [managing-tasks](managing-tasks/SKILL.md) | Create, move, assign, and comment on tasks |
 | [managing-agents](managing-agents/SKILL.md) | Register agents, update status, discover peers |
