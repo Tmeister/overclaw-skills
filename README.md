@@ -7,16 +7,12 @@ Agent skills for the OverClaw CLI. Each skill follows the [SKILL.md format](http
 | Skill | Description |
 |-------|-------------|
 | [install](install/SKILL.md) | Install and configure the OverClaw CLI |
-| [managing-projects](managing-projects/SKILL.md) | Create, update, list, and archive projects |
-| [managing-tasks](managing-tasks/SKILL.md) | Create, move, assign, and comment on tasks |
-| [managing-agents](managing-agents/SKILL.md) | Register agents, update status, discover peers |
-| [logging-activities](logging-activities/SKILL.md) | Log and query the audit trail |
-| [reporting-status](reporting-status/SKILL.md) | Build status summaries from live data |
+| [onboarding](onboarding/SKILL.md) | Spin up an agent team, populate workspaces, and kick off a project |
+
+## Agent workspace templates
+
+Agent workspace templates (SOUL.md, AGENTS.md, HEARTBEAT.md, TOOLS.md, BOOTSTRAP.md, LIFECYCLE.md) are bundled inside the [onboarding](onboarding/) skill at `onboarding/templates/`. The onboarding skill reads these templates, replaces placeholder tokens with actual values, and writes them to each agent's workspace.
 
 ## Prerequisites
 
 The `overclaw` CLI must be installed and configured. See the [overclaw-cli](https://github.com/enrique-chavez/overclaw-cli) repo.
-
-## Usage
-
-Point your agent to the relevant skill directory. Each `SKILL.md` is self-contained with command syntax, flags, examples, and response formats.
