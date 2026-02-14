@@ -101,4 +101,4 @@ If any table shows `false`, run the migration SQL from the repo's `supabase-migr
 
 ## Next step
 
-After the CLI is installed and `overclaw init` succeeds, deploy the background services (notification worker and cron jobs) using the [deploy skill](https://raw.githubusercontent.com/Tmeister/overclaw-skills/main/deploy/SKILL.md).
+After the CLI is installed and `overclaw init` succeeds, deploy the background services (notification worker and cron jobs) using the [deploy skill](https://raw.githubusercontent.com/Tmeister/overclaw-skills/refs/heads/main/deploy/SKILL.md).
