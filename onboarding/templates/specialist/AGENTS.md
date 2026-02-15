@@ -40,6 +40,10 @@ overclaw agent update-status {AGENT_ID} --status busy|idle|offline [--task <id>]
 overclaw activity log --type "..." --message "..." [--project <id>] [--task <id>] --agent {AGENT_ID} --agent-name "{AGENT_NAME}"
 overclaw activity list [--project <id>] [--limit <n>]
 
+# Documents
+overclaw document list [--project <id>] [--task <id>] [--type <type>] [--limit <n>]
+overclaw document get <id>
+
 # Context
 overclaw heartbeat context --agent {AGENT_ID}
 
@@ -88,6 +92,10 @@ But ask (via comment or @mention to lead) before grabbing unassigned work.
 Always follow this sequence:
 
 ```bash
+# Check for relevant documents (task-linked and project protocols)
+overclaw document list --project <project-id> --task <task-id>
+overclaw document list --project <project-id> --type protocol
+
 # Move the task first
 overclaw task move <task-id> --status in_progress
 
@@ -100,6 +108,8 @@ overclaw activity log --type "task_started" --message "Started: <title>" --proje
 # Comment your plan
 overclaw task comment <task-id> --message "Starting work. Plan: 1) <step>, 2) <step>, 3) <step>" --author "{AGENT_NAME}" --type agent
 ```
+
+If documents are found, read them with `overclaw document get <id>` before starting implementation. Follow any guidelines or standards they define.
 
 ### 3. Track progress
 

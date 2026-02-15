@@ -50,6 +50,12 @@ overclaw agent update-status {AGENT_ID} --status <status> [--task <id>]
 overclaw activity list [--project <id>] [--type <type>] [--agent <id>] [--limit <n>]
 overclaw activity log --type "..." --message "..." [--project <id>] [--task <id>] [--agent {AGENT_ID} --agent-name "{AGENT_NAME}"]
 
+# Documents
+overclaw document list [--project <id>] [--task <id>] [--type <type>] [--limit <n>]
+overclaw document create --project <id> --title "..." --type <type> [--task <id>] [--content "..."] [--file-url "..."]
+overclaw document get <id>
+overclaw document update <id> [--title "..."] [--type <type>] [--task <id>] [--content "..."] [--file-url "..."]
+
 # Heartbeat
 overclaw heartbeat context --agent {AGENT_ID} [--project <id>]
 

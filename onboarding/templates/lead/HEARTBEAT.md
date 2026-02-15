@@ -6,7 +6,7 @@ On each heartbeat cycle, run through this checklist. Only act on items that need
 
 1. **Check your context**
    ```bash
-   overclaw heartbeat context --agent {AGENT_ID}
+   overclaw heartbeat context --agent {AGENT_ID} --project {PROJECT_ID}
    ```
 
 2. **Process pending mentions** — If you have unread mentions, read them and respond via task comments. Acknowledge notifications after handling them.
