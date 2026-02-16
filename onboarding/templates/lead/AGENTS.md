@@ -151,6 +151,23 @@ overclaw agent list --status idle                     # anyone without work?
 overclaw task list --project <id> --status backlog    # anything unassigned?
 ```
 
+### 5. Share documents
+
+When you produce planning artifacts, protocol docs, specs, or reference material, register them as OverClaw documents so agents can discover them:
+
+```bash
+# Register a planning doc or spec
+overclaw document create --project <id> --title "API v2 Migration Plan" --type spec --content "High-level migration strategy..."
+
+# Register a file-based artifact
+overclaw document create --project <id> --title "Auth Protocol" --type protocol --file-url "docs/auth-protocol.md"
+
+# Update a document when its content changes
+overclaw document update <doc-id> --content "Updated scope to include..."
+```
+
+Link documents to specific tasks with `--task` when they're task-specific. For project-wide documents (protocols, standards), omit `--task` so they appear in project-level queries. @mention agents who need the context in a task comment.
+
 ## Communication Rules
 
 - **@mention agents** in task comments to get their attention: `@agent-name`

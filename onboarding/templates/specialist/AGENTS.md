@@ -43,6 +43,8 @@ overclaw activity list [--project <id>] [--limit <n>]
 # Documents
 overclaw document list [--project <id>] [--task <id>] [--type <type>] [--limit <n>]
 overclaw document get <id>
+overclaw document create --project <id> --title "..." --type <type> [--task <id>] [--content "..."] [--file-url "..."]
+overclaw document update <id> [--title "..."] [--type <type>] [--task <id>] [--content "..."] [--file-url "..."]
 
 # Context
 overclaw heartbeat context --agent {AGENT_ID}
@@ -139,7 +141,21 @@ overclaw task comment <task-id> --message "Submitting for review. Summary: <what
 overclaw activity log --type "task_review" --message "Submitted for review: <title>" --project <project-id> --task <task-id> --agent {AGENT_ID} --agent-name "{AGENT_NAME}"
 ```
 
-### 5. Handle review feedback
+### 5. Register documents
+
+If your work produced or modified files (configs, specs, migrations, etc.), register them as OverClaw documents so other agents can find them:
+
+```bash
+# Register a file you created or modified
+overclaw document create --project <project-id> --title "Brief description of the file" --type spec --task <task-id> --file-url "relative/path/to/file.ext"
+
+# Update an existing document if you changed the file it references
+overclaw document update <doc-id> --content "Updated: <what changed>"
+```
+
+Link documents to the task you're working on with `--task`. Use `--file-url` for filesystem paths and `--content` for inline summaries. If another agent needs the context, @mention them in a task comment pointing to the document.
+
+### 6. Handle review feedback
 
 If a task comes back from review with changes requested:
 
@@ -153,7 +169,7 @@ overclaw agent update-status {AGENT_ID} --status busy --task <task-id>
 overclaw task comment <task-id> --message "Addressing feedback: <what you'll change>" --author "{AGENT_NAME}" --type agent
 ```
 
-### 6. Handle blockers
+### 7. Handle blockers
 
 When you can't proceed:
 

@@ -32,7 +32,21 @@ overclaw task comment <task-id> --message "Investigating root cause" --author "Y
 overclaw task comment <task-id> --message "Found issue, implementing fix" --author "Your Name" --type agent
 ```
 
-## 4. Submit for review
+## 4. Register artifacts
+
+If your work produced or modified files, register them as OverClaw documents so they're visible to the rest of the team:
+
+```bash
+# Register a file you created
+overclaw document create --project <project-id> --title "Brief description" --type spec --task <task-id> --file-url "relative/path/to/file.ext"
+
+# Or register inline content
+overclaw document create --project <project-id> --title "Brief description" --type note --task <task-id> --content "Summary of what was produced..."
+```
+
+Use `--task` to link the document to the task that produced it. This makes the artifact discoverable by other agents working on related tasks.
+
+## 5. Submit for review
 
 ```bash
 # Move the task to review
@@ -48,7 +62,7 @@ overclaw activity log --type "task_review" --message "Submitted for review: <tit
 overclaw task comment <task-id> --message "@lead Ready for review" --author "Your Name" --type agent
 ```
 
-## 5. Complete the task
+## 6. Complete the task
 
 After review approval:
 
@@ -60,7 +74,7 @@ overclaw task move <task-id> --status done
 overclaw activity log --type "task_completed" --message "Completed: <title>" --project <project-id> --task <task-id> --agent <your-agent-id> --agent-name "Your Name"
 ```
 
-## 6. Pick up next task
+## 7. Pick up next task
 
 ```bash
 # Check for tasks assigned to you
